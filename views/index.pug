@@ -1,0 +1,18 @@
+extends base.pug
+
+block content 
+  section.s-main.section
+    .container
+      .s-main_tours
+      
+        - 
+          var tours = [
+            { title: "Добро пожаловать в Беларусь", image: '1.jpg', class: 'big' }, 
+            { title: "Chernobyl Theme Tour", image: '2.jpg', class: 'small' }, 
+            { title: "Тур по столице Беларуси", image: '3.jpg', class: 'small' }
+          ]
+
+        each tour in tours  
+          div(class=`s-main_tour ${tour.class} bg`, style=`background-image: url('img/${tour.image}')`) 
+            .s-main_tour__title= tour.title
+            a.s-main_tour__btn(href="/tour") Исследовать

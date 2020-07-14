@@ -1,0 +1,23 @@
+- var menus = [{ title: "Наши услуги", items: ['Туры', 'Трансфер', 'Визовая поддержка', 'Отели']}, { title: "О нас", items: ['Цены', 'Контакты', 'Политика конфиденциальности'] }]
+
+footer.footer
+  .container
+    .footer-menus
+      each obj in menus
+        div.footer-menu
+          h2= obj.title
+          ul
+            each item in obj.items
+              li
+                a(href="/")= item    
+      div.footer-menu  
+        h2 Связаться с нами
+        ul
+          li
+            a(href="https://google.maps.com") str Lenina 21, Belarus 
+          li
+            a(href="mailto:bison@gmail.com") bison@gmail.com
+          li
+            a(href="tel:+732 33 283 11 22") +732 33 283 11 22
+    .footer-rights
+      p © 2009-#{new Date().getFullYear()} Все права защищены.
