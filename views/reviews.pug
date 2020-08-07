@@ -1,0 +1,45 @@
+-
+  let options = { month: 'long', day: '2-digit', year: 'numeric' }
+
+  let reviews = [
+    {
+      photo: "gid1.jpg",
+      name: "Maria",
+      date: '2013, 11, 17',
+      review: "Belarus Prime Tour is my own partner of choice in all matters concerning Belarus tourism. I have worked with the company (an independent operation) for a number of years and have recommended their services to many travellers, all of whom have been well served. I recommend the company to you. The full range of services that all other agencies offer are available here, but the company will always go the extra mile in delivering beyond industry standards, including specialist activities, cultural events & individually tailored tourst" 
+    },
+    {
+      photo: "gid2.jpg",
+      name: "Petya",
+      date: '2015, 2, 6',
+      review: "Belarus Prime Tour is my own partner of choice in all matters concerning Belarus tourism. I have worked with the company (an independent operation) for a number of years and have recommended their services to many travellers, all of whom have been well served. I recommend the company to you. The full range of services that all other agencies offer are available here, but the company will always go the extra mile in delivering beyond industry standards, including specialist activities, cultural events & individually tailored tourst" 
+    },
+    {
+      photo: "gid3.jpg",
+      name: "Maria",
+      date: '2018, 9, 22',
+      review: "Belarus Prime Tour is my own partner of choice in all matters concerning Belarus tourism. I have worked with the company (an independent operation) for a number of years and have recommended their services to many travellers, all of whom have been well served. I recommend the company to you. The full range of services that all other agencies offer are available here, but the company will always go the extra mile in delivering beyond industry standards, including specialist activities, cultural events & individually tailored tourst" 
+    },
+    {
+      photo: "gid4.jpg",
+      name: "Vanya",
+      date: '2019, 4, 4',
+      review: "Belarus Prime Tour is my own partner of choice in all matters concerning Belarus tourism. I have worked with the company (an independent operation) for a number of years and have recommended their services to many travellers, all of whom have been well served. I recommend the company to you. The full range of services that all other agencies offer are available here, but the company will always go the extra mile in delivering beyond industry standards, including specialist activities, cultural events & individually tailored tourst" 
+    },
+  ] 
+
+section.s-reviews.section
+  .container
+    .s-title Что о нас говорят
+      .reviews-slider
+        each review in reviews
+          .reviews-slider_item
+            .reviews-slider_item__avatar(class="bg", style=`background-image: url(img/${review.photo})`)
+            .reviews-slider_item__name= review.name
+            .reviews-slider_item__date= new Date(review.date).toLocaleDateString("en-US", options)
+            .reviews-slider_item__review= review.review
+      .reviews-slider_nav.tns-nav
+        - let i = 0
+        while i < reviews.length / 2
+          button
+          - i++

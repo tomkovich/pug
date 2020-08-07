@@ -9,10 +9,19 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
     "nodemon": "^2.0.4"
   },
   "dependencies": {
     "express": "^4.17.1",
+    "jstransformer-babel": "^2.1.0",
     "pug": "^3.0.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
   }
 }

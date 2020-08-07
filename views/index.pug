@@ -6,7 +6,7 @@ block content
       .s-main_tours
       
         - 
-          var tours = [
+          let tours = [
             { title: "Добро пожаловать в Беларусь", image: '1.jpg', class: 'big' }, 
             { title: "Chernobyl Theme Tour", image: '2.jpg', class: 'small' }, 
             { title: "Тур по столице Беларуси", image: '3.jpg', class: 'small' }
@@ -16,3 +16,76 @@ block content
           div(class=`s-main_tour ${tour.class} bg`, style=`background-image: url('img/${tour.image}')`) 
             .s-main_tour__title= tour.title
             a.s-main_tour__btn(href="/tour") Исследовать
+
+  section.s-offers.section
+    .container  
+        h2.s-title Что мы предлагаем?
+        .s-offers_cards
+          -
+            let cards = [
+              { title: "Отели", icon: "bed", description: "Мы предлагаем большинство лучших отелей Беларуси с высоким рейтигом " },
+              { title: "Трансфер", icon: "car", description: "Любой автомобиль всех марок в вашем ряспоряжении. А также трансфер от самого аэропорта" },
+              { title: "Туры", icon: "map", description: "Мы создали более 20 интересных туров по любым городам и местам Беларуси" },
+              { title: "Получение визы", icon: "passport", description: "Если вы затрудняетесь с получением визы, либо хотите полностью поручить нам ее оформление для вас" },
+            ]
+
+          each offer in cards  
+            .s-offers_cards__item 
+              .cards_item__icon
+                img(src=`img/${offer.icon}.svg`, alt=`${icon}`) 
+              h3= offer.title
+              .cards_item__description= offer.description
+
+  section.s-tours.section
+    .container
+      h2.s-title Популярные туры
+      .s-tours_list
+        -
+          let popular_tours = [
+            { title: "Брест - город-герой", intro: "Здесь находится душа 1000-летнего Бреста.", image: "t1.jpg", price: 300 },
+            { title: "Лучшие места Минска", intro: "Современный европейский город с уютными и красивыми достопричемательностями", image: "t2.jpg", price: 199 },
+            { title: "Рождество в Гомеле", intro: "В этом прекрасном городе проходит один из лучших рождественских карнавалов", image: "t3.jpg", price: 1000 },
+            { title: "All in One", intro: "Тур включает в себя все популярные места по всей Беларуси", image: "t4.jpg", price: 677 },
+          ]
+
+        each tour in popular_tours 
+          .s-tours_list__item.bg(style=`background-image: url(img/${tour.image})`)
+            h3= tour.title
+            .s-tours_item__intro
+              p= tour.intro
+            a.s-tours_item__link(href="/tour") Заказать  
+            .s-tours_item__price= `${tour.price}$`
+  section.s-subscribe.section
+    .container 
+      .s-subscribe_form
+        .s-subscribe_form__text Подпишись, чтобы получать последние новости о скидках и новых турах
+        button.s-subscribe_form__btn Подписаться
+
+  section.s-team.section.s-dark
+    .container
+      .s-title Наша команда
+        .s-team_list
+          -
+            let leads = [
+              { name: "Elena", photo: "gid1.jpg", socials: ['elena1', 'elena_fb', 'elena_insta'] },
+              { name: "Ben", photo: "gid2.jpg", socials: ['ben1', 'ben_fb', 'ben_insta'] },
+              { name: "Anastasia", photo: "gid3.jpg", socials: ['anastasia1', 'anastasia_fb', 'anastasia_insta'] },
+              { name: "Ildar", photo: "gid4.jpg", socials: ['ildar1', 'ildar_fb', 'ildar_insta'] },
+            ]
+          each lead in leads
+            .s-team_list__lead
+              .list_lead__photo 
+                img(src=`img/${lead.photo}`)
+              h3= lead.name
+              ul.list_lead__socials
+                li
+                  a(href=`https://twitter.com/${lead.socials[0]}`)
+                    img(src="img/twitter.svg")
+                li
+                  a(href=`https://facebook.com/${lead.socials[1]}`)
+                    img(src="img/fb.svg")
+                li
+                  a(href=`https://instagram.com/${lead.socials[2]}`)
+                    img(src="img/instagram.svg")
+
+  include reviews.pug          
